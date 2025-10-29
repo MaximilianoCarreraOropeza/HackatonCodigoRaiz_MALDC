@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import WalletConnect from "./WalletConnect"
+import Logo from "../../public/stellar-projects-foundation-logo.jpg"
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -13,10 +14,8 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <span className="text-2xl">⭐</span>
-            </div>
-            <span className="text-xl font-bold gradient-text">StellarLaunch</span>
+              <img src={Logo} alt="StellarLaunch Logo" className="w-8 h-8 rounded-lg" />
+            <span className="text-xl font-bold gradient-text">Stellar Projects Fundation</span>
           </Link>
 
           {/* Desktop Navigation */}

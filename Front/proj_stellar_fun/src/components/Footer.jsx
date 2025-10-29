@@ -1,6 +1,5 @@
-"use client"
-
 import { useState } from "react"
+import Logo from "../../public/stellar-projects-foundation-logo.jpg"
 
 export default function Footer() {
   const [email, setEmail] = useState("")
@@ -18,10 +17,8 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <span className="text-2xl">⭐</span>
-              </div>
-              <span className="text-xl font-bold gradient-text">StellarLaunch</span>
+              <img src={Logo} alt="StellarLaunch Logo" className="w-10 h-10 rounded-lg" />
+              <span className="text-xl font-bold gradient-text">Stellar Projects Fundation</span>
             </div>
             <p className="text-sm text-foreground/70 leading-relaxed">
               La plataforma de crowdfunding blockchain para jóvenes innovadores. Construyendo el futuro Web3 juntos.

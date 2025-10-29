@@ -19,8 +19,6 @@ export default function Hero() {
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            <span className="gradient-text">StellarLaunch:</span>
-            <br />
             <span className="text-foreground">Donde las ideas jóvenes</span>
             <br />
             <span className="text-foreground">se convierten en estrellas</span> ⭐

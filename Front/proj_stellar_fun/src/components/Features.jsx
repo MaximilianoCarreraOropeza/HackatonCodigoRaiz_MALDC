@@ -28,7 +28,7 @@ export default function Features() {
       <div className="container mx-auto">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold">
-            <span className="gradient-text">¿Por qué StellarLaunch?</span>
+            <span className="gradient-text">¿Por qué Stellar Projects Fundation?</span>
           </h2>
           <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
             La plataforma de crowdfunding blockchain diseñada para la nueva generación de innovadores
