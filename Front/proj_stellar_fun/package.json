@@ -12,6 +12,7 @@
     "@stellar/stellar-sdk": "latest",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "install": "^0.13.0",
     "jiti": "latest",
     "less": "latest",
     "lightningcss": "latest",

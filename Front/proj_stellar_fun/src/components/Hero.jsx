@@ -21,13 +21,13 @@ export default function Hero() {
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
             <span className="text-foreground">Donde las ideas jóvenes</span>
             <br />
-            <span className="text-foreground">se convierten en estrellas</span> ⭐
+            <span className="text-foreground">se convierten en estrellas</span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-foreground/70 max-w-2xl mx-auto leading-relaxed">
             Financia proyectos Web3 con Stellar. Invierte hoy y gana retornos en Lumens o tokens.
-            <span className="block mt-2">¡Tu idea merece brillar en la blockchain! 🚀</span>
+            <span className="block mt-2">¡Tu idea merece brillar en la blockchain! <i class="fa-solid fa-rocket"></i></span>
           </p>
 
           {/* CTA Buttons */}
@@ -36,13 +36,13 @@ export default function Hero() {
               href="#projects"
               className="px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-semibold text-lg hover:shadow-lg hover:shadow-primary/50 transition-all hover:scale-105"
             >
-              Explora Proyectos 🔍
+              Explora Proyectos <i class="fa-solid fa-magnifying-glass"></i>
             </a>
             <Link
               to="/launch"
               className="px-8 py-4 rounded-xl bg-card border border-primary/30 text-foreground font-semibold text-lg hover:bg-primary/10 transition-all hover:scale-105"
             >
-              Lanza Tu Idea 💡
+              Lanza Tu Idea <i class="fa-solid fa-lightbulb"></i>
             </Link>
           </div>
 

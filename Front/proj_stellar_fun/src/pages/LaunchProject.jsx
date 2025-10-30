@@ -1,41 +1,60 @@
-"use client"
-
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import Header from "../components/Header"
-import Footer from "../components/Footer"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2"; // 👈 Importa SweetAlert2
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function LaunchProject() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: "",
     description: "",
     goal: "",
     category: "Tecnología",
     imageUrl: "",
-  })
-  const [submitting, setSubmitting] = useState(false)
+  });
+  const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setSubmitting(true)
+    e.preventDefault();
+    setSubmitting(true);
 
-    // Simulate project creation with Stellar
+    Swal.fire({
+      title: "Creando proyecto en Stellar...",
+      text: "Por favor, espera unos segundos ",
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      didOpen: () => {
+        Swal.showLoading();
+      },
+    });
+
     setTimeout(() => {
-      alert(
-        `¡Proyecto "${formData.title}" creado exitosamente! 🎉\n\nSe ha generado una cuenta Stellar para tu proyecto.\nAhora los inversores pueden comenzar a financiar tu idea.`,
-      )
-      setSubmitting(false)
-      navigate("/")
-    }, 2000)
-  }
+      Swal.fire({
+        title: "¡Proyecto Creado Exitosamente!",
+        html: `
+          <p><strong>${formData.title}</strong> ha sido creado con éxito.</p>
+          <p>Se ha generado una cuenta Stellar para tu proyecto.</p>
+          <p class="text-sm text-gray-600">Ahora los inversores pueden comenzar a financiar tu idea.</p>
+        `,
+        icon: "success",
+        confirmButtonText: "Volver al inicio",
+        confirmButtonColor: "#4F46E5",
+        backdrop: `rgba(0,0,0,0.4)`,
+      }).then(() => {
+        navigate("/");
+      });
+
+      setSubmitting(false);
+    }, 2000);
+  };
 
   return (
     <div className="min-h-screen">
@@ -45,10 +64,11 @@ export default function LaunchProject() {
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-12 space-y-4">
             <h1 className="text-4xl md:text-5xl font-bold">
-              <span className="gradient-text">Lanza Tu Proyecto</span> 🚀
+              <span className="gradient-text">Lanza Tu Proyecto</span>
             </h1>
             <p className="text-xl text-foreground/70">
-              Comparte tu idea con la comunidad y comienza a recibir inversiones en Lumens
+              Comparte tu idea con la comunidad y comienza a recibir inversiones
+              en Lumens
             </p>
           </div>
 
@@ -56,7 +76,10 @@ export default function LaunchProject() {
             <div className="p-8 rounded-2xl bg-card border border-border space-y-6">
               {/* Title */}
               <div className="space-y-2">
-                <label htmlFor="title" className="block text-sm font-semibold text-foreground">
+                <label
+                  htmlFor="title"
+                  className="block text-sm font-semibold text-foreground"
+                >
                   Título del Proyecto *
                 </label>
                 <input
@@ -73,7 +96,10 @@ export default function LaunchProject() {
 
               {/* Category */}
               <div className="space-y-2">
-                <label htmlFor="category" className="block text-sm font-semibold text-foreground">
+                <label
+                  htmlFor="category"
+                  className="block text-sm font-semibold text-foreground"
+                >
                   Categoría *
                 </label>
                 <select
@@ -96,7 +122,10 @@ export default function LaunchProject() {
 
               {/* Description */}
               <div className="space-y-2">
-                <label htmlFor="description" className="block text-sm font-semibold text-foreground">
+                <label
+                  htmlFor="description"
+                  className="block text-sm font-semibold text-foreground"
+                >
                   Descripción *
                 </label>
                 <textarea
@@ -113,7 +142,10 @@ export default function LaunchProject() {
 
               {/* Goal */}
               <div className="space-y-2">
-                <label htmlFor="goal" className="block text-sm font-semibold text-foreground">
+                <label
+                  htmlFor="goal"
+                  className="block text-sm font-semibold text-foreground"
+                >
                   Objetivo de Funding (en Lumens XLM) *
                 </label>
                 <input
@@ -134,7 +166,10 @@ export default function LaunchProject() {
 
               {/* Image URL */}
               <div className="space-y-2">
-                <label htmlFor="imageUrl" className="block text-sm font-semibold text-foreground">
+                <label
+                  htmlFor="imageUrl"
+                  className="block text-sm font-semibold text-foreground"
+                >
                   URL de Imagen (opcional)
                 </label>
                 <input
@@ -151,14 +186,22 @@ export default function LaunchProject() {
               {/* Info Box */}
               <div className="p-4 rounded-lg bg-primary/10 border border-primary/30">
                 <div className="flex gap-3">
-                  <span className="text-2xl">ℹ️</span>
                   <div className="space-y-1 text-sm">
-                    <p className="font-semibold text-foreground">Sobre tu proyecto en Stellar:</p>
+                    <p className="font-semibold text-foreground">
+                      Sobre tu proyecto en Stellar:
+                    </p>
                     <ul className="text-foreground/70 space-y-1 list-disc list-inside">
-                      <li>Se creará una cuenta Stellar única para tu proyecto</li>
-                      <li>Todas las inversiones serán transparentes en la blockchain</li>
+                      <li>
+                        Se creará una cuenta Stellar única para tu proyecto
+                      </li>
+                      <li>
+                        Todas las inversiones serán transparentes en la
+                        blockchain
+                      </li>
                       <li>Los fondos se liberan al alcanzar tu objetivo</li>
-                      <li>Puedes configurar recompensas en tokens para inversores</li>
+                      <li>
+                        Puedes configurar recompensas en tokens para inversores
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -171,7 +214,13 @@ export default function LaunchProject() {
               disabled={submitting}
               className="w-full py-4 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-bold text-lg hover:shadow-lg hover:shadow-primary/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {submitting ? "Creando Proyecto en Stellar..." : "Lanzar Proyecto 🚀"}
+              {submitting ? (
+                <p>Creando Proyecto en Stellar...</p>
+              ) : (
+                <p>
+                  Lanzar Proyecto <i className="fa-solid fa-rocket"></i>
+                </p>
+              )}
             </button>
 
             <p className="text-center text-sm text-foreground/60">
@@ -183,5 +232,5 @@ export default function LaunchProject() {
 
       <Footer />
     </div>
-  )
+  );
 }
